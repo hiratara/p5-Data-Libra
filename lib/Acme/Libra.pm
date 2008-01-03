@@ -84,6 +84,10 @@ No bugs have been reported.
 
 Masahiro Honma  C<< <hiratara@cpan.org> >>
 
+=head1 SEE ALSO
+
+Digest::MD5
+
 =head1 LICENCE AND COPYRIGHT
 
 Copyright (c) 2008, Masahiro Honma C<< <hiratara@cpan.org> >>. All rights reserved.
