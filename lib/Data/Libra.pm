@@ -9,14 +9,11 @@ use Digest::MD5;
 sub new{
     my $class = shift;
     bless {
-           salt   => `hostname`, 
-           status => {
-                    'HP'  => [100, 1000], 
-                    'MP'  => [100, 1000],
-                    'ATK' => [  0,  255], 
-                    'DEF' => [  0,  255]
-                   },
-           @_  # override default values
+            salt   => `hostname`, 
+            values => {
+                    'VALUE'  => [0, 100], 
+            },
+            @_  # override default values
           }, $class;
 }
 
@@ -25,8 +22,8 @@ sub scan{
     my $self = shift;
     my ($word) = @_;
     my %ret = ();
-    foreach my $k(sort keys %{ $self->{status} }){
-        my ($min, $max) = @{ $self->{status}{$k} };
+    foreach my $k(sort keys %{ $self->{values} }){
+        my ($min, $max) = @{ $self->{values}{$k} };
         my $range = $max - $min + 1;
         my $md5 = Digest::MD5::md5($k . $self->{salt} . $word);
         $ret{$k} = unpack('J', $md5) % $range + $min;
@@ -49,12 +46,9 @@ Data::Libra - Generating unique and random values from a string.
     # using default Libra
     my $libra = new Data::Libra();
 
-    # scan your status
-    my $status = $libra->scan('Your Name');
-    print "HP: $status->{HP}\n";
-    print "MP: $status->{MP}\n";
-    print "ATK: $status->{ATK}\n";
-    print "DEF: $status->{DEF}\n";
+    # scan your string
+    my $values = $libra->scan('a string');
+    print "VALUE: $values->{VALUE}\n"; # a random value from 0 to 100
 
 I<or>
 
@@ -63,7 +57,7 @@ I<or>
     # create your Libra!
     my $love_fortune = new Data::Libra(
         salt   => 'necessary to cook well:-p',
-        status => {COMPATIBILITY => [0, 100]},
+        values => {COMPATIBILITY => [0, 100]},
     );
 
     # calculate your love compatibility number.
@@ -73,6 +67,45 @@ I<or>
 =head1 DESCRIPTION
 
 Data::Libra generate random values from a string. If you scan the same strings, you will get the same values. It works like "Barcode Battler" or "Monster Rancher(Monster Farm)".
+
+=head2 Methods
+
+=over
+
+=item my $libra = new Data::Libra( ... );
+
+Constructor of Data::Libra. All parameters have default values.
+
+=over 2
+
+=item salt => $salt (DEFAULT: `hostname`)
+
+set $salt that is used by random values generator. If a different salt is used, different values will be generated. 
+
+=item values => {KEY => [$min, $max], ...} (DEFAULT: {VALUE => [0, 100]}
+
+set items that you want to get from scan() method. KEY will be contained in the result of scan(). The generated integer corresponding to KEY becomes within the range from $min to $max. 
+
+=back
+
+=item my $ref_values = $libra->scan($some_strings);
+
+generate random values from $some_strings.
+
+For example, if you set values param like this:
+
+  my $libra = new Data::Libra(
+      values => {KEY1 => [100, 1000], KEY2 => [1, 100]}
+  );
+
+The returned value is a hash reference like this:
+
+  {
+    KEY1 => 688,
+    KEY2 => 36,
+  }
+
+=back
 
 "Libra" is a name of the magic in Final Fantasy by which scan status of monsters.
 
