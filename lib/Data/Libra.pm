@@ -1,4 +1,4 @@
-package Acme::Libra;
+package Data::Libra;
 
 use strict;
 use warnings;
@@ -40,14 +40,14 @@ __END__
 
 =head1 NAME
 
-Acme::Libra - Generating unique and random values from a string.
+Data::Libra - Generating unique and random values from a string.
 
 =head1 SYNOPSIS
 
-    use Acme::Libra;
+    use Data::Libra;
 
     # using default Libra
-    my $libra = new Acme::Libra();
+    my $libra = new Data::Libra();
 
     # scan your status
     my $status = $libra->scan('Your Name');
@@ -58,10 +58,10 @@ Acme::Libra - Generating unique and random values from a string.
 
 I<or>
 
-    use Acme::Libra;
+    use Data::Libra;
 
     # create your Libra!
-    my $love_fortune = new Acme::Libra(
+    my $love_fortune = new Data::Libra(
         salt   => 'necessary to cook well:-p',
         status => {COMPATIBILITY => [0, 100]},
     );
@@ -72,7 +72,7 @@ I<or>
 
 =head1 DESCRIPTION
 
-Acme::Libra generate random values from a string. If you scan the same strings, you will get the same values. It works like "Barcode Battler" or "Monster Rancher(Monster Farm)".
+Data::Libra generate random values from a string. If you scan the same strings, you will get the same values. It works like "Barcode Battler" or "Monster Rancher(Monster Farm)".
 
 "Libra" is a name of the magic in Final Fantasy by which scan status of monsters.
 
