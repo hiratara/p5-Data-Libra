@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 use Test::More;
-use Acme::Libra;
+use Data::Libra;
 
 #===============================================================================
 # constant variebles
@@ -18,7 +18,7 @@ require 't/util.pl';
 plan tests => (@_words - 1) * 2 + 2;
 
 # initialize for main tests
-my $libra = new Acme::Libra();
+my $libra = new Data::Libra();
 
 my @stats = ();
 foreach( @_words ){

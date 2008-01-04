@@ -1,7 +1,7 @@
 use Test::More tests => 1;
 
 BEGIN {
-use_ok( 'Acme::Libra' );
+use_ok( 'Data::Libra' );
 }
 
-diag( "Testing Acme::Libra $Acme::Libra::VERSION" );
+diag( "Testing Data::Libra $Data::Libra::VERSION" );

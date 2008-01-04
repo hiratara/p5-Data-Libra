@@ -3,7 +3,7 @@ Changes
 MANIFEST
 Makefile.PL
 README
-lib/Acme/Libra.pm
+lib/Data/Libra.pm
 t/00.load.t
 t/perlcritic.t
 t/pod-coverage.t

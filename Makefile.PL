@@ -9,10 +9,10 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-    NAME                => 'Acme::Libra',
+    NAME                => 'Data::Libra',
     AUTHOR              => 'Masahiro Honma <hira.tara@gmail.com>',
-    VERSION_FROM        => 'lib/Acme/Libra.pm',
-    ABSTRACT_FROM       => 'lib/Acme/Libra.pm',
+    VERSION_FROM        => 'lib/Data/Libra.pm',
+    ABSTRACT_FROM       => 'lib/Data/Libra.pm',
     PL_FILES            => {},
     PREREQ_PM => {
         'Test::More'  => 0,
@@ -20,5 +20,5 @@ WriteMakefile(
         'Digest::MD5' => 0,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean               => { FILES => 'Acme-Libra-*' },
+    clean               => { FILES => 'Data-Libra-*' },
 );

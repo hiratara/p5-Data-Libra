@@ -2,14 +2,14 @@ use strict;
 use warnings;
 
 use Test::More;
-use Acme::Libra;
+use Data::Libra;
 
 require 't/util.pl';
 plan tests => 4;
 
 # test 1
 {
-    my $libra = new Acme::Libra( status => {x => [-1, 2]} );
+    my $libra = new Data::Libra( status => {x => [-1, 2]} );
 
     my %ret = ();
     foreach (0 .. 100_000) {
@@ -24,7 +24,7 @@ plan tests => 4;
 
 # test 2
 {
-    my $libra = new Acme::Libra(
+    my $libra = new Data::Libra(
 				status => {
 					   x => [0, 1], 
 					   y => [0, 1], 
@@ -37,13 +37,13 @@ plan tests => 4;
 
 # test 3, 4
 {
-    my $libra1 = new Acme::Libra( 
+    my $libra1 = new Data::Libra( 
         salt => '1', status => {x => [0, 0xFFFFFFFF]
     });
-    my $libra2 = new Acme::Libra( 
+    my $libra2 = new Data::Libra( 
         salt => '2', status => {x => [0, 0xFFFFFFFF]
     });
-    my $libra3 = new Acme::Libra( 
+    my $libra3 = new Data::Libra( 
         salt => '1', status => {x => [0, 0xFFFFFFFF]
     });
     my $stat1 = $libra1->scan('foofoo');
