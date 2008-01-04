@@ -2,19 +2,33 @@ package Data::Libra;
 
 use strict;
 use warnings;
-use version; our $VERSION = qv('0.0.1');
+use version; our $VERSION = qv('0.0.2');
 use Digest::MD5;
+use Carp;
+
+sub _check_range{
+    Carp::croak('values range must be less than ' . 0xffffffff . '.') 
+      if $_->[1] - $_->[0] > 0xffffffff;
+    Carp::croak('first param of values must be less than second param.') 
+      if $_->[0] > $_->[1];
+}
 
 
 sub new{
     my $class = shift;
-    bless {
-            salt   => `hostname`, 
-            values => {
-                    'VALUE'  => [0, 100], 
-            },
-            @_  # override default values
-          }, $class;
+    my $self = {
+        salt   => `hostname`, 
+        values => {
+            'VALUE'  => [0, 100], 
+        },
+        @_  # override default values
+    };
+
+    foreach(values %{ $self->{values} }){
+        _check_range($_);
+    }
+
+    bless $self, $class;
 }
 
 
@@ -26,7 +40,7 @@ sub scan{
         my ($min, $max) = @{ $self->{values}{$k} };
         my $range = $max - $min + 1;
         my $md5 = Digest::MD5::md5($k . $self->{salt} . $word);
-        $ret{$k} = unpack('J', $md5) % $range + $min;
+        $ret{$k} = unpack('N', $md5) % $range + $min;
     }
     return \%ret;
 }

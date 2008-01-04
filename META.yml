@@ -1,6 +1,6 @@
 ---
 name: Data-Libra
-version: v0.0.1
+version: 0.0.2
 author:
   - 'Masahiro Honma <hiratara@cpan.org>'
 abstract: Generating unique and random values from a string.
@@ -14,8 +14,8 @@ requires:
 provides:
   Data::Libra:
     file: lib/Data/Libra.pm
-    version: v0.0.1
-generated_by: Module::Build version 0.2806
+    version: 0.0.2
+generated_by: Module::Build version 0.2808
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
   version: 1.2

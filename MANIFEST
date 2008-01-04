@@ -3,13 +3,14 @@ Changes
 lib/Data/Libra.pm
 Makefile.PL
 MANIFEST
+META.yml
 README
 t/00.load.t
 t/01.util.t
 t/libra.t
 t/libra_custom.t
+t/libra_error.t
 t/perlcritic.t
 t/pod-coverage.t
 t/pod.t
 t/util.pl
-META.yml
