@@ -1,0 +1,21 @@
+---
+name: Data-Libra
+version: v0.0.1
+author:
+  - 'Masahiro Honma <hiratara@cpan.org>'
+abstract: Generating unique and random values from a string.
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+requires:
+  Digest::MD5: 0
+  Test::More: 0
+  version: 0
+provides:
+  Data::Libra:
+    file: lib/Data/Libra.pm
+    version: v0.0.1
+generated_by: Module::Build version 0.2806
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2

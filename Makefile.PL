@@ -10,7 +10,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME                => 'Data::Libra',
-    AUTHOR              => 'Masahiro Honma <hira.tara@gmail.com>',
+    AUTHOR              => 'Masahiro Honma <hiratara@cpan.org>',
     VERSION_FROM        => 'lib/Data/Libra.pm',
     ABSTRACT_FROM       => 'lib/Data/Libra.pm',
     PL_FILES            => {},
