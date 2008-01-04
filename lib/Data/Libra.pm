@@ -7,10 +7,11 @@ use Digest::MD5;
 use Carp;
 
 sub _check_range{
+    my $ref = shift;
     Carp::croak('values range must be less than ' . 0xffffffff . '.') 
-      if $_->[1] - $_->[0] > 0xffffffff;
+      if $ref->[1] - $ref->[0] > 0xffffffff;
     Carp::croak('first param of values must be less than second param.') 
-      if $_->[0] > $_->[1];
+      if $ref->[0] > $ref->[1];
 }
 
 
