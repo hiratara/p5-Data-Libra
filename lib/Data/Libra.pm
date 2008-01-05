@@ -2,7 +2,7 @@ package Data::Libra;
 
 use strict;
 use warnings;
-use version; our $VERSION = qv('0.0.2');
+use version; our $VERSION = qv('0.0.3');
 use Digest::MD5;
 use Carp;
 
@@ -81,7 +81,7 @@ I<or>
 
 =head1 DESCRIPTION
 
-Data::Libra generate random values from a string. If you scan the same strings, you will get the same values. It works like "Barcode Battler" or "Monster Rancher(Monster Farm)".
+Data::Libra generate random values from a string. If you scan the same string, you will get the same values. It works like "Barcode Battler" or "Monster Rancher(Monster Farm)".
 
 =head2 Methods
 

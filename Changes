@@ -1,5 +1,8 @@
 Revision history for Data-Libra
 
+0.0.3  Sun Jan  6 0:15:00 2008
+       some tests are too sensitive. it was improved.
+
 0.0.2  Sat Jan  5 1:00:00 2008
        fix the bug occured by perl5.6
 
