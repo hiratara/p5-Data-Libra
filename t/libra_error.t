@@ -13,13 +13,13 @@ eval {
     my $libra = new Data::Libra( values => {x => [10, 0xffffffff + 11]} );
 };
 
-ok($@, 'occured error');
+like($@, qr/values range/, 'occured error');
 
 eval {
     my $libra = new Data::Libra( values => {x => [1, 0]} );
 };
 
-ok($@, 'occured error 2');
+like($@, qr/second param/, 'occured error 2');
 
 
 eval {
